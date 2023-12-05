@@ -1,4 +1,6 @@
-﻿var lines = readLinesFromFile("data_live.txt");
+﻿using Lib;
+
+var lines = DataUtilities.ReadLinesFromFile("data_live.txt");
 
 List<List<int>> rows = [];
 foreach(var line in lines)
@@ -24,17 +26,3 @@ for (var rowIndex = rows.Count - 2; rowIndex >= 0; rowIndex--)
     }
 }
 Console.WriteLine(rows[0][0]);
-
-List<string> readLinesFromFile(string path)
-{
-    List<string> lines = new List<string>();
-    using (StreamReader reader = new StreamReader(path))
-    {
-        string? line;
-        while ((line = reader.ReadLine()) != null)
-        {
-            lines.Add(line);
-        }
-    }
-    return lines;
-}
